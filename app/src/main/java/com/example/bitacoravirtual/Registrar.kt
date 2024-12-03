@@ -1,10 +1,13 @@
 package com.example.bitacoravirtual
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
+import com.android.volley.Response
 import com.android.volley.toolbox.Volley
 import com.example.bitacoravirtual.databinding.ActivityRegistrarBinding
+import org.json.JSONObject
 
 class Registrar : AppCompatActivity() {
     private lateinit var binding: ActivityRegistrarBinding
@@ -28,9 +31,27 @@ class Registrar : AppCompatActivity() {
                 binding.edtCorreo.error = "Este campo es requerido"
 
             }else{
-                val endpoint = "https://"
+                val endpoint = "https://192.168.110.29:8080/v1/alumnos"
                 val metodo = Request.Method.POST
-                val body = ""
+                val body = JSONObject().apply {
+                    put("nombre", nombre)
+                    put("apellido", apellido)
+                    put("matricula", matricula)
+                    put("correo", correo)
+                    put("contrasena", "contrasena")
+                }
+
+                val listener = Response.Listener<JSONObject> { response ->
+                    val codigo = response.getInt("codigo")
+                    if (codigo == 200) {
+                }else{
+                    Toast.makeText(this, codigo, Toast.LENGTH_SHORT).show()
+
+
+                    }
+                }
+
+
             }
 
         }
