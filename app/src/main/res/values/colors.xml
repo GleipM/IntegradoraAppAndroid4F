@@ -3,4 +3,5 @@
     <color name="background_color">#F5F5F5</color>
     <color name="translucent_black">#80000000</color>
     <color name="translucent_white">#80FFFFFF</color>
+    <color name="translucent_white90">#99FFFFFF</color>
 </resources>

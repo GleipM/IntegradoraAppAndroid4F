@@ -26,7 +26,6 @@
             android:layout_gravity="center"
             android:paddingBottom="16dp"
             android:text="Registro de Alumnos"
-            android:textColor="@color/primary_color"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -93,6 +92,6 @@
             android:backgroundTint="@color/design_default_color_primary"
             android:padding="8dp"
             android:text="Registrar"
-            android:textColor="@color/design_default_color_on_secondary" />
+            android:textColor="@color/background_color" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

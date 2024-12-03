@@ -13,10 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/fondo_traslucido"
-        android:backgroundTint="@color/translucent_white"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,40 +27,77 @@
             android:id="@+id/txtNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Nombre: Juan Pérez"
+            android:layout_marginBottom="4dp"
+            android:text="Nombre"
+            android:textAlignment="center"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtNombreUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edwin Gael"
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/txtApellido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Apellido: Pérez"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="Apellido"
+            android:textAlignment="center"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zepeda Ruiz"
+            android:textAlignment="center" />
+
+        <TextView
             android:id="@+id/txtMatricula"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Matrícula: 20233TN228"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="Matrícula"
+            android:textAlignment="center"
             android:textColor="@android:color/background_dark"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <!-- Correo -->
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20233tn202"
+            android:textAlignment="center" />
+
         <TextView
             android:id="@+id/txtCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Correo: 20233TN228@utez.edu.mx"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="Correo"
+            android:textAlignment="center"
             android:textColor="@android:color/background_dark"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20233tb202@utez.edu.mx"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/btnEditarPerfil"
@@ -70,17 +106,7 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/primary_color"
             android:text="Editar Perfil"
-            android:textColor="@color/design_default_color_on_secondary" />
-
-        <Button
-            android:id="@+id/btnRegresar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#6200EC"
-            android:onClick="regresar"
-            android:text="Regresar"
-            android:textColor="@color/design_default_color_on_secondary" />
+            android:textColor="@color/design_default_color_background" />
 
     </LinearLayout>
 

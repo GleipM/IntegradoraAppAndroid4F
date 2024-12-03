@@ -28,7 +28,6 @@
             android:layout_marginRight="10dp"
             android:text="Datos Bitacora"
             android:textAlignment="center"
-            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -75,7 +74,7 @@
             android:layout_marginRight="10dp"
             android:ems="10"
             android:hint="7:00"
-            android:inputType="text"
+            android:inputType="time"
             android:textAlignment="center"
             android:textColor="#000000" />
 
@@ -97,7 +96,7 @@
             android:layout_marginRight="10dp"
             android:ems="10"
             android:hint="8:00"
-            android:inputType="text"
+            android:inputType="time"
             android:textAlignment="center"
             android:textColor="#000000" />
 
