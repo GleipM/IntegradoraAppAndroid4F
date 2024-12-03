@@ -16,6 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".SeleccionarEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".SeleccionarSalon"
+            android:exported="false" />
+        <activity
             android:name=".Home"
             android:exported="false" />
         <activity
