@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/salon"
+    android:background="@drawable/imagen_de_whatsapp_2024_11_26_a_las_19_54_00_5aafbdf7"
+    android:backgroundTint="@color/translucent_black"
+    android:backgroundTintMode="src_over"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -60,22 +62,31 @@
             android:textColorHint="@color/translucent_black"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnSiguiente"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:backgroundTint="#6650A3"
-            android:text="Siguiente"
-            android:textColor="@color/translucent_white" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnRegistrarse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Registrarse"
-            android:textColor="@color/translucent_white"
-            android:textColorLink="#2A2023" />
+            <Button
+                android:id="@+id/btnSiguiente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#6650A3"
+                android:text="Siguiente"
+                android:textColor="@color/translucent_white" />
+
+            <Button
+                android:id="@+id/btnRegistrarse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Registrarse"
+                android:textColor="@color/translucent_white" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

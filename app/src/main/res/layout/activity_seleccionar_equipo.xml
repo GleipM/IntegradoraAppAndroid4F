@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/salon"
+    android:background="@drawable/imagen_de_whatsapp_2024_11_26_a_las_19_54_00_5aafbdf7"
+    android:backgroundTint="@color/translucent_black"
+    android:backgroundTintMode="src_over"
     tools:context=".SeleccionarEquipo">
 
     <LinearLayout
