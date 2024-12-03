@@ -7,6 +7,8 @@ android {
     namespace = "com.example.bitacoravirtual"
     compileSdk = 35
 
+
+
     defaultConfig {
         applicationId = "com.example.bitacoravirtual"
         minSdk = 24
