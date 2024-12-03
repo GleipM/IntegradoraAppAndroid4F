@@ -31,7 +31,7 @@ class Registrar : AppCompatActivity() {
                 binding.edtCorreo.error = "Este campo es requerido"
 
             }else{
-                val endpoint = "https://192.168.110.29:8080/v1/alumnos"
+                val endpoint = endpoint().endpoint
                 val metodo = Request.Method.POST
                 val body = JSONObject().apply {
                     put("nombre", nombre)
