@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/imgsalon"
+    android:backgroundTint="@color/translucent_black"
+    android:backgroundTintMode="src_over"
     tools:context=".Perfil">
 
     <LinearLayout

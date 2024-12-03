@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/imgsalon"
+    android:backgroundTint="@color/translucent_black"
+    android:backgroundTintMode="src_over"
     tools:context=".Registrar">
 
     <LinearLayout
@@ -13,7 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/fondo_traslucido"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:hint="Matrícula"
-            android:inputType="number"
+            android:inputType="text"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textColorHint="@color/translucent_black" />
