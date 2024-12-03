@@ -69,5 +69,13 @@
             android:text="Siguiente"
             android:textColor="@color/translucent_white" />
 
+        <Button
+            android:id="@+id/btnRegistrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:textColor="@color/translucent_white"
+            android:textColorLink="#2A2023" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
