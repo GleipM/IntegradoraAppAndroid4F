@@ -155,8 +155,7 @@
                     android:hint="1"
                     android:inputType="text"
                     android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
+                    android:textColor="#000000" />
             </LinearLayout>
 
             <LinearLayout
@@ -181,8 +180,7 @@
                     android:hint="F"
                     android:inputType="text"
                     android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
+                    android:textColor="#000000" />
             </LinearLayout>
 
         </LinearLayout>
@@ -208,8 +206,7 @@
             android:hint="Pantalla Sucia"
             android:inputType="text"
             android:textAlignment="center"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/txtFoto"
