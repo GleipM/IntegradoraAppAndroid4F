@@ -1,10 +1,12 @@
 package com.example.bitacoravirtual
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.bitacoravirtual.databinding.ActivityRegistrarBinding
 import org.json.JSONObject
@@ -44,17 +46,23 @@ class Registrar : AppCompatActivity() {
                 val listener = Response.Listener<JSONObject> { response ->
                     val codigo = response.getInt("codigo")
                     if (codigo == 200) {
+                        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
+
                 }else{
-                    Toast.makeText(this, codigo, Toast.LENGTH_SHORT).show()
-
-
+                        Toast.makeText(this, "Error al registrar", Toast.LENGTH_SHORT).show()
                     }
                 }
-
+                val errorListener = Response.ErrorListener { error ->
+                    Log.e("Error Volley", error.toString())
+                    Toast.makeText(this, "Error al registrar", Toast.LENGTH_SHORT).show()
+                }
+                val request = JsonObjectRequest(metodo, endpoint, body, listener, errorListener)
+                queue.add(request)
 
             }
 
         }
+
 
 
     }
