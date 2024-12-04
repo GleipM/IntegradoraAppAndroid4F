@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="#6650A3"
             android:padding="8dp"
             android:text="Registrar"
             android:textColor="@color/background_color" />
