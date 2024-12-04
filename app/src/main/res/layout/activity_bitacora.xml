@@ -30,6 +30,7 @@
             android:layout_marginRight="10dp"
             android:text="Datos Bitacora"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -41,6 +42,7 @@
             android:layout_marginRight="10dp"
             android:text="Fecha"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <EditText
@@ -66,6 +68,7 @@
             android:layout_marginRight="10dp"
             android:text="Hora de entrada"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <EditText
@@ -88,6 +91,7 @@
             android:layout_marginRight="10dp"
             android:text="Hora de salida"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <EditText
@@ -110,6 +114,7 @@
             android:layout_marginRight="10dp"
             android:text="Maestro"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <EditText
@@ -141,6 +146,7 @@
                     android:layout_height="wrap_content"
                     android:text="Grado"
                     android:textAlignment="center"
+                    android:textColor="#000000"
                     android:textStyle="bold" />
 
                 <EditText
@@ -150,6 +156,7 @@
                     android:ems="10"
                     android:hint="1"
                     android:inputType="text"
+                    android:maxLength="1"
                     android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -165,6 +172,7 @@
                     android:layout_height="wrap_content"
                     android:text="Grupo"
                     android:textAlignment="center"
+                    android:textColor="#000000"
                     android:textStyle="bold" />
 
                 <EditText
@@ -174,6 +182,7 @@
                     android:ems="10"
                     android:hint="F"
                     android:inputType="text"
+                    android:maxLength="1"
                     android:textAlignment="center"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -188,6 +197,7 @@
             android:layout_marginRight="10dp"
             android:text="Observaciónes"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <EditText
@@ -210,6 +220,7 @@
             android:layout_marginRight="10dp"
             android:text="Fotografia"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <Button
