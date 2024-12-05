@@ -1,5 +1,6 @@
 package com.example.bitacoravirtual
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,5 +14,11 @@ class SeleccionarSalon : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySeleccionarSalonBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnSiguiente1.setOnClickListener {
+            val intent = Intent(this, SeleccionarEquipo::class.java)
+            startActivity(intent)
+        }
+
     }
 }

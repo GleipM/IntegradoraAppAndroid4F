@@ -30,6 +30,10 @@
         <activity
             android:name=".Bitacora"
             android:exported="false" />
+        <activity android:name=".SeleccionarEquipo"
+            android:exported="false" />
+        <activity android:name=".SeleccionarSalon"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

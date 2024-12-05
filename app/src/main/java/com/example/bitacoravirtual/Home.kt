@@ -20,7 +20,7 @@ class Home : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnRegistrarBitacora.setOnClickListener {
-            val intent = Intent(this, Bitacora::class.java)
+            val intent = Intent(this, SeleccionarSalon::class.java)
             startActivity(intent)
         }
 

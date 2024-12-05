@@ -45,8 +45,9 @@ class Registrar : AppCompatActivity() {
 
                 val listener = Response.Listener<JSONObject> { response ->
                     val codigo = response.getInt("codigo")
-                    if (codigo == 200) {
+                    if (codigo == 201) {
                         Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
+                        finish()
 
                 }else{
                         Toast.makeText(this, "Error al registrar", Toast.LENGTH_SHORT).show()
