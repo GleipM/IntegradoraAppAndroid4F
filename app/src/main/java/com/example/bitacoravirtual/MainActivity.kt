@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
                         val intent = Intent(this@MainActivity, Home::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        intent.putExtra("correo", binding.edtCorreo.text.toString())
                         startActivity(intent)
                     } catch (e: Exception) {
                         Log.e("Error", "Error al obtener el token", e)

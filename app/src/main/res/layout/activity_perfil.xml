@@ -10,6 +10,16 @@
     android:backgroundTintMode="src_over"
     tools:context=".Perfil">
 
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="#644E9E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -26,7 +36,7 @@
         <!-- Foto -->
 
         <TextView
-            android:id="@+id/txtNombre"
+            android:id="@+id/TituloNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
@@ -36,15 +46,14 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtNombreUsuario"
+        <EditText
+            android:id="@+id/txtNombres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edwin Gael"
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/txtApellido"
+            android:id="@+id/TituloApellido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -55,15 +64,14 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView7"
+        <EditText
+            android:id="@+id/txtApellidos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zepeda Ruiz"
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/txtMatricula"
+            android:id="@+id/TituloMatricula"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -75,15 +83,14 @@
             android:textStyle="bold" />
 
         <!-- Correo -->
-        <TextView
-            android:id="@+id/textView8"
+        <EditText
+            android:id="@+id/txtMatricula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20233tn202"
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/txtCorreo"
+            android:id="@+id/TituloCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -94,11 +101,10 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView9"
+        <EditText
+            android:id="@+id/txtCorreo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20233tb202@utez.edu.mx"
             android:textAlignment="center" />
 
         <Button

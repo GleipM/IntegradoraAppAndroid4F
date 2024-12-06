@@ -25,12 +25,14 @@ class Registrar : AppCompatActivity() {
             val apellido = binding.edtApellido.text.toString().trim()
             val matricula = binding.edtMaricula.text.toString().trim()
             val correo = binding.edtCorreo.text.toString().trim()
+            val contra = binding.edtContra.text.toString().trim()
 
             if (nombre.isEmpty() || apellido.isEmpty() || matricula.isEmpty() || correo.isEmpty()) {
                 binding.etNombre.error = "Este campo es requerido"
                 binding.edtApellido.error = "Este campo es requerido"
                 binding.edtMaricula.error = "Este campo es requerido"
                 binding.edtCorreo.error = "Este campo es requerido"
+                binding.edtContra.error = "Este campo es requerido"
 
             }else{
                 val endpoint = endpoint().endpoint + "alumnos"
@@ -40,7 +42,7 @@ class Registrar : AppCompatActivity() {
                     put("apellido", apellido)
                     put("matricula", matricula)
                     put("correo", correo)
-                    put("contrasena", "contrasena")
+                    put("contrasena", contra)
                 }
 
                 val listener = Response.Listener<JSONObject> { response ->
