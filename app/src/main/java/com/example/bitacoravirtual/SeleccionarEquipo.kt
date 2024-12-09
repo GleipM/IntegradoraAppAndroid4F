@@ -23,11 +23,8 @@ class SeleccionarEquipo : AppCompatActivity() {
         binding = ActivitySeleccionarEquipoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnSiguiente2.setOnClickListener {
-            val intent = Intent(this, Bitacora::class.java)
-            startActivity(intent)
-        }
-
+        // Obtener el id del salón del Intent
+        val idSalon = intent.getIntExtra("id_salon", -1)
 
         val queue = Volley.newRequestQueue(this)
         val metodo = Request.Method.GET
@@ -66,7 +63,8 @@ class SeleccionarEquipo : AppCompatActivity() {
         binding.lvEquipos.setOnItemClickListener { parent, view, position, id ->
             val equipoSeleccionado = listaEquipos[position]  // Accedemos al salón desde la lista
             val intent = Intent(this, Bitacora::class.java)
-            intent.putExtra("id", equipoSeleccionado.getInt("id"))  // Enviamos el "id" del salón
+            intent.putExtra("id_salon", idSalon)  // Enviar el id del salón
+            intent.putExtra("id_equipo", equipoSeleccionado.getInt("id")) // Enviamos el "id" del salón
             startActivity(intent)
         }
 
