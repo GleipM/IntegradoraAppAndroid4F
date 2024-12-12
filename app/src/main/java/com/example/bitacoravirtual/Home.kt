@@ -25,6 +25,7 @@ class Home : AppCompatActivity() {
         }
         binding.btnRegistrarBitacora.setOnClickListener {
             val intent = Intent(this, SeleccionarSalon::class.java)
+            intent.putExtra("correo", correo)
             startActivity(intent)
         }
 

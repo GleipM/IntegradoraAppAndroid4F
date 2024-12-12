@@ -2,29 +2,31 @@ package com.example.bitacoravirtual
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.os.MessageQueue
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.net.toUri
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
 import com.example.bitacoravirtual.databinding.ActivityBitacoraBinding
 import java.io.File
-import java.util.Queue
 import java.util.UUID
 
 class Bitacora : AppCompatActivity() {
     private lateinit var binding: ActivityBitacoraBinding
     private lateinit var photo: File
     private lateinit var queue: RequestQueue
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityBitacoraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        var idSalon = intent.getIntExtra("id_salon", -1)
+        var idEquipo = intent.getIntExtra("id_equipo", -1)
+        var correo = intent.getStringExtra("correo")
 
         queue = Volley.newRequestQueue(this)
 
@@ -45,8 +47,23 @@ class Bitacora : AppCompatActivity() {
         }
 
         binding.btnEnviar.setOnClickListener {
+            val fecha = binding.edtFecha.text.toString().trim()
+            val horaEntrada = binding.edtHoraEntrada.text.toString().trim()
+            val horaSalida = binding.edtHoraSalida.text.toString().trim()
+            val maestro = binding.edtMaestro.text.toString().trim()
+            val grado = binding.edtGrado.text.toString().trim()
+            val grupo = binding.edtGrupo.text.toString().trim()
+            val observaciones = binding.edtObservaciones.text.toString().trim()
 
+            if (fecha.isEmpty() || horaEntrada.isEmpty() || horaSalida.isEmpty() || maestro.isEmpty() || grado.isEmpty() || grupo.isEmpty() || observaciones.isEmpty()) {
+                Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                // Llamar a la función para subir datos y foto
+                uploadMultipartToServer(photo.toUri())
+            }
         }
+
+
     }
 
     private val cameraLauncher =
@@ -67,16 +84,16 @@ class Bitacora : AppCompatActivity() {
 
 
 
-
     private fun showDatePickerDialog() {
         val newFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, month, day ->
-            // +1 because January is zero
-            val selectedDate = day.toString() + " / " + (month + 1) + " / " + year
+            // Formatear la fecha como yyyy-MM-dd
+            val selectedDate = "$year-${month + 1}-$day"
             binding.edtFecha.setText(selectedDate)
         })
 
         newFragment.show(supportFragmentManager, "datePicker")
     }
+
 
 
 
@@ -93,26 +110,53 @@ class Bitacora : AppCompatActivity() {
         val inputStream = contentResolver.openInputStream(uri)
         val bytes = inputStream?.readBytes() ?: byteArrayOf()
 
+        val idSalon = intent.getIntExtra("id_salon", -1)
+        val idEquipo = intent.getIntExtra("id_equipo", -1)
+        val correo = intent.getStringExtra("correo")
+
+        // Campos adicionales requeridos por el backend
         val params = mapOf(
-            "nombre" to "hanna",
-            "apellido" to "lopez",
-            "fecha" to "2024-11-27",
-            "lugar" to "UTEZ"
+            "id_salon" to idSalon.toString(),
+            "id_equipo" to idEquipo.toString(),
+            "correo" to correo,
+            "fecha" to binding.edtFecha.text.toString().trim(),
+            "horaEntrada" to binding.edtHoraEntrada.text.toString().trim(),
+            "horaSalida" to binding.edtHoraSalida.text.toString().trim(),
+            "maestro" to binding.edtMaestro.text.toString().trim(),
+            "grado" to binding.edtGrado.text.toString().trim(),
+            "grupo" to binding.edtGrupo.text.toString().trim(),
+            "observaciones" to binding.edtObservaciones.text.toString().trim()
         )
 
-        val multipartRequest = MultipartRequest(
+        // Crear la solicitud multipart
+        val multipartRequest = object : MultipartRequest(
             url,
             bytes,
             params,
             { response ->
-                Toast.makeText(this, "Persona agregada correctamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Bitácora registrada correctamente", Toast.LENGTH_SHORT).show()
+                finish() // Cerrar la actividad si es necesario
             },
             { error ->
-                Toast.makeText(this, "Error al agregar persona", Toast.LENGTH_SHORT).show()
+                Log.e("Error Volley", error.toString())
+                Toast.makeText(this, "Error al registrar bitácora", Toast.LENGTH_SHORT).show()
             }
-        )
+        ) {
+            override fun getByteData(): Map<String, ByteArray> {
+                val fileData = HashMap<String, ByteArray>()
+                fileData["imagen"] = bytes // Usa "imagen" como el nombre del campo del archivo
+                return fileData
+            }
+        }
+
+        // Agregar la solicitud a la cola de Volley
         queue.add(multipartRequest)
     }
+
+
+
+
+
 
 
 

@@ -23,6 +23,8 @@ class SeleccionarSalon : AppCompatActivity() {
         binding = ActivitySeleccionarSalonBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val correo = intent.getStringExtra("correo")
+
         val queue = Volley.newRequestQueue(this)
         val metodo = Request.Method.GET
         val endpoint = endpoint().endpoint + "salones"
@@ -60,7 +62,8 @@ class SeleccionarSalon : AppCompatActivity() {
         binding.lvSalon.setOnItemClickListener { parent, view, position, id ->
             val personaSeleccionada = listaSalones[position]  // Accedemos al salón desde la lista
             val intent = Intent(this, SeleccionarEquipo::class.java)
-            intent.putExtra("id", personaSeleccionada.getInt("id"))  // Enviamos el "id" del salón
+            intent.putExtra("correo", correo)
+            intent.putExtra("id_salon", personaSeleccionada.getInt("id"))  // Enviamos el "id" del salón
             startActivity(intent)
         }
     }

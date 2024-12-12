@@ -25,6 +25,7 @@ class SeleccionarEquipo : AppCompatActivity() {
 
         // Obtener el id del salón del Intent
         val idSalon = intent.getIntExtra("id_salon", -1)
+        val correo = intent.getStringExtra("correo")
 
         val queue = Volley.newRequestQueue(this)
         val metodo = Request.Method.GET
@@ -65,6 +66,7 @@ class SeleccionarEquipo : AppCompatActivity() {
             val intent = Intent(this, Bitacora::class.java)
             intent.putExtra("id_salon", idSalon)  // Enviar el id del salón
             intent.putExtra("id_equipo", equipoSeleccionado.getInt("id")) // Enviamos el "id" del salón
+            intent.putExtra("correo", correo)
             startActivity(intent)
         }
 
