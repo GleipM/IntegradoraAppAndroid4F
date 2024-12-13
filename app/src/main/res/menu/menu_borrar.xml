@@ -4,7 +4,15 @@
 
     <item
         android:id="@+id/mnuBorrar"
-        android:icon="@android:drawable/ic_delete"
+        android:title="Borrar Perfil"
+        app:showAsAction="always" />
+    <item
+        android:icon="@drawable/easter_egg"
+        android:title="mnuSorpresa"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/mnuRegresar"
+        android:icon="@android:drawable/ic_menu_revert"
         android:title="Item"
         app:showAsAction="always" />
 </menu>
