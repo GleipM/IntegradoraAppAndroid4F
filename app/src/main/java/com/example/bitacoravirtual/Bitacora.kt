@@ -1,6 +1,7 @@
 package com.example.bitacoravirtual
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -56,7 +57,9 @@ class Bitacora : AppCompatActivity() {
             } else {
                 // Llamar a la función para subir datos y foto
                 uploadMultipartToServer(photo.toUri())
-
+                val intent = Intent(this, Registrar::class.java)
+                startActivity(intent)
+                finish()
             }
         }
 
@@ -70,9 +73,6 @@ class Bitacora : AppCompatActivity() {
             if (result) {
                 // Mostrar la imagen en el ImageView
                 binding.imgPreview.setImageURI(photo.toUri())
-
-                // Actualizar el formulario con la URI de la imagen
-                binding.edtObservaciones.setText(photo.absolutePath)
             } else {
                 Toast.makeText(this, "No se pudo tomar la foto", Toast.LENGTH_SHORT).show()
             }
