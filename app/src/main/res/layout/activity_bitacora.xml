@@ -60,51 +60,69 @@
             android:textAlignment="center"
             android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/txtHoraEntrada"
+        <LinearLayout
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Hora de entrada"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edtHoraEntrada"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:ems="10"
-            android:hint="7:00"
-            android:inputType="time"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+            <LinearLayout
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtHoraSalida"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Hora de salida"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txtHoraEntrada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Hora de entrada"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edtHoraSalida"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:ems="10"
-            android:hint="8:00"
-            android:inputType="time"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+                <EditText
+                    android:id="@+id/edtHoraEntrada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:ems="10"
+                    android:hint="07:00:00"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtHoraSalida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Hora de salida"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtHoraSalida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:ems="10"
+                    android:hint="08:00:00"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
+            </LinearLayout>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/txtMaestro"
@@ -218,6 +236,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
             android:text="Fotografia"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -225,15 +244,18 @@
 
         <ImageView
             android:id="@+id/imgPreview"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/fondo_traslucido" />
+z
 
         <Button
             android:id="@+id/btnFoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:backgroundTint="#6650A3"
             android:text="Tomar Foto"
             android:textColor="#FFFFFF" />
