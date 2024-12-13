@@ -35,7 +35,7 @@ class Registrar : AppCompatActivity() {
                 binding.edtContra.error = "Este campo es requerido"
 
             }else{
-                val endpoint = endpoint().endpoint + "alumnos"
+                val endpoint = Endpoint().endpoint + "alumnos"
                 val metodo = Request.Method.POST
                 val body = JSONObject().apply {
                     put("nombre", nombre)

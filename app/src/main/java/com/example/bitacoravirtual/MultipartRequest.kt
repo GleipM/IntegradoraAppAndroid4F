@@ -12,7 +12,7 @@ import java.io.IOException
 open class MultipartRequest(
     url: String,
     private val filePart: ByteArray,
-    private val params: Map<String, String?>,
+    private val params: Map<String, Any?>,
     private val listener: Response.Listener<NetworkResponse>,
     private val errorListener: Response.ErrorListener
 ) : Request<NetworkResponse>(Method.POST, url, errorListener) {
@@ -33,7 +33,7 @@ open class MultipartRequest(
             buildFilePart(dos, filePart)
             // Add additional parameters
             for ((key, value) in params) {
-                buildTextPart(dos, key, value ?: "") // Usar "" si el valor es nulo
+                buildTextPart(dos, key, (value ?: "").toString()) // Usar "" si el valor es nulo
             }
             dos.writeBytes("--$boundary--\r\n")
         } catch (e: IOException) {

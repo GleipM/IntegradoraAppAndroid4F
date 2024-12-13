@@ -13,7 +13,6 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.bitacoravirtual.databinding.ActivityPerfilBinding
-import com.example.bitacoravirtual.databinding.ActivitySuppBinding
 import org.json.JSONObject
 
 @Suppress("UNREACHABLE_CODE")
@@ -30,7 +29,7 @@ class Perfil : AppCompatActivity() {
 
         val queue = Volley.newRequestQueue(this)
         val metodo = Request.Method.GET
-        val endpoint = endpoint().endpoint + "alumnos/" + correo
+        val endpoint = Endpoint().endpoint + "alumnos/" + correo
         val listener = Response.Listener<JSONObject> { response ->
             val codigo = response.getInt("codigo")
             if (codigo == 200) {
@@ -70,7 +69,7 @@ class Perfil : AppCompatActivity() {
                 binding.txtMatricula.error = "Este campo es requerido"
 
             } else {
-                val endpoint = endpoint().endpoint + "alumnos/" + correo
+                val endpoint = Endpoint().endpoint + "alumnos/" + correo
                 val metodo = Request.Method.PUT
                 val body = JSONObject().apply {
                     put("nombre", nombre)
@@ -122,7 +121,7 @@ class Perfil : AppCompatActivity() {
                     val correo = intent.getStringExtra("correo")
                     val queue = Volley.newRequestQueue(this)
                     val metodo = Request.Method.DELETE
-                    val endpoint = endpoint().endpoint + "alumnos/" + correo
+                    val endpoint = Endpoint().endpoint + "alumnos/" + correo
                     val listener = Response.Listener<JSONObject> { response ->
                         val codigo = response.getInt("codigo")
                         if (codigo == 204) {

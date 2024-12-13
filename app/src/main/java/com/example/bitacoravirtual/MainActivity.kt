@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         // Set up the "Siguiente" button to trigger authentication
         binding.btnSiguiente.setOnClickListener {
             val metodo = Request.Method.POST
-            val endpoint = endpoint().endpoint + "authenticate"
+            val endpoint = Endpoint().endpoint + "authenticate"
             val body = JSONObject().apply {
                 put("usuario", binding.edtCorreo.text.toString().trim())
                 put("contrasenia", binding.edtContrasena.text.toString().trim())

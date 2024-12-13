@@ -24,10 +24,6 @@ class Bitacora : AppCompatActivity() {
         binding= ActivityBitacoraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var idSalon = intent.getIntExtra("id_salon", -1)
-        var idEquipo = intent.getIntExtra("id_equipo", -1)
-        var correo = intent.getStringExtra("correo")
-
         queue = Volley.newRequestQueue(this)
 
         binding.edtFecha.setOnClickListener {
@@ -48,8 +44,8 @@ class Bitacora : AppCompatActivity() {
 
         binding.btnEnviar.setOnClickListener {
             val fecha = binding.edtFecha.text.toString().trim()
-            val horaEntrada = binding.edtHoraEntrada.text.toString().trim()
-            val horaSalida = binding.edtHoraSalida.text.toString().trim()
+            val horaEntrada = binding.edtHoraEntrada.text.toString()
+            val horaSalida = binding.edtHoraSalida.text.toString()
             val maestro = binding.edtMaestro.text.toString().trim()
             val grado = binding.edtGrado.text.toString().trim()
             val grupo = binding.edtGrupo.text.toString().trim()
@@ -60,6 +56,7 @@ class Bitacora : AppCompatActivity() {
             } else {
                 // Llamar a la función para subir datos y foto
                 uploadMultipartToServer(photo.toUri())
+
             }
         }
 
@@ -87,8 +84,9 @@ class Bitacora : AppCompatActivity() {
     private fun showDatePickerDialog() {
         val newFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, month, day ->
             // Formatear la fecha como yyyy-MM-dd
-            val selectedDate = "$year-${month + 1}-$day"
+            val selectedDate = String.format("%04d-%02d-%02d", year, month + 1, day)
             binding.edtFecha.setText(selectedDate)
+
         })
 
         newFragment.show(supportFragmentManager, "datePicker")
@@ -106,7 +104,7 @@ class Bitacora : AppCompatActivity() {
     }
 
     private fun uploadMultipartToServer(uri: android.net.Uri) {
-        val url = endpoint().endpoint + "bitacoras"
+        val url = Endpoint().endpoint + "bitacoras"
         val inputStream = contentResolver.openInputStream(uri)
         val bytes = inputStream?.readBytes() ?: byteArrayOf()
 
@@ -114,14 +112,22 @@ class Bitacora : AppCompatActivity() {
         val idEquipo = intent.getIntExtra("id_equipo", -1)
         val correo = intent.getStringExtra("correo")
 
+        val horaEntrada = binding.edtHoraEntrada.text.toString().trim()
+        val horaSalida = binding.edtHoraSalida.text.toString().trim()
+
+// Formatear las horas para asegurarse de que sean en formato HH:mm:ss
+        val horaEntradaFormateada = formatHora(horaEntrada)
+        val horaSalidaFormateada = formatHora(horaSalida)
+
+
         // Campos adicionales requeridos por el backend
         val params = mapOf(
             "id_salon" to idSalon.toString(),
             "id_equipo" to idEquipo.toString(),
             "correo" to correo,
-            "fecha" to binding.edtFecha.text.toString().trim(),
-            "horaEntrada" to binding.edtHoraEntrada.text.toString().trim(),
-            "horaSalida" to binding.edtHoraSalida.text.toString().trim(),
+            "fecha" to binding.edtFecha.text.toString(),
+            "horaEntrada" to horaEntradaFormateada,
+            "horaSalida" to horaSalidaFormateada,
             "maestro" to binding.edtMaestro.text.toString().trim(),
             "grado" to binding.edtGrado.text.toString().trim(),
             "grupo" to binding.edtGrupo.text.toString().trim(),
@@ -154,6 +160,27 @@ class Bitacora : AppCompatActivity() {
     }
 
 
+    private fun formatHora(hora: String): String {
+        val horaParts = hora.split(":")
+        return when (horaParts.size) {
+            1 -> {
+                // Si solo tienes la hora (por ejemplo "8"), añade los minutos y segundos
+                String.format("%02d:%02d:%02d", horaParts[0].toInt(), 0, 0)
+            }
+            2 -> {
+                // Si tienes hora y minutos (por ejemplo "8:00"), añade los segundos
+                String.format("%02d:%02d:%02d", horaParts[0].toInt(), horaParts[1].toInt(), 0)
+            }
+            3 -> {
+                // Si tienes hora, minutos y segundos (por ejemplo "08:00:00")
+                String.format("%02d:%02d:%02d", horaParts[0].toInt(), horaParts[1].toInt(), horaParts[2].toInt())
+            }
+            else -> {
+                // Si el formato es incorrecto, devuelves una hora por defecto
+                "00:00:00"
+            }
+        }
+    }
 
 
 

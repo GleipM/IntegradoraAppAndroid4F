@@ -3,10 +3,7 @@ package com.example.bitacoravirtual
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -29,7 +26,7 @@ class SeleccionarEquipo : AppCompatActivity() {
 
         val queue = Volley.newRequestQueue(this)
         val metodo = Request.Method.GET
-        val endpoint = endpoint().endpoint + "equipos"
+        val endpoint = Endpoint().endpoint + "equipos"
         val body = null
 
         val listener = Response.Listener<JSONObject> { resultado ->
